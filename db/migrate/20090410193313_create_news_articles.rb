@@ -8,7 +8,10 @@ class CreateNewsArticles < ActiveRecord::Migration
       t.belongs_to :attachment
       t.integer :attachment_version 
       t.text :summary 
-      t.text :body, :size => (64.kilobytes + 1) 
+      t.text :body, :size => (64.kilobytes + 1)
+      t.string :news_type
+      t.date :closing_date
+      t.string :url # External link!
     end
     
     # Create the content type, category type and section for news

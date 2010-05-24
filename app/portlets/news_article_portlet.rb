@@ -6,5 +6,5 @@ class NewsArticlePortlet < Portlet
       @news_article = NewsArticle.find(params[:news_article_id])
     end
   end
-    
+  
 end

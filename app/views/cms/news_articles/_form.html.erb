@@ -1,7 +1,22 @@
 <%= f.cms_text_field :name %>
+<%= f.cms_drop_down :news_type, ['Event', 'Notice', 'Vacancy'] %>
+<%= f.cms_date_picker :closing_date %>
 <%= f.cms_date_picker :release_date %>
 <%= f.cms_drop_down :category_id, categories_for('News Article').map{|c| [c.path, c.id]} %>
 <%= f.cms_text_area :summary, :style => "height: 100px" %>
 <%= f.cms_text_editor :body %>
 <%= f.cms_file_field :attachment_file, :label => "File" %>
 <%= f.cms_tag_list %>
+
+<script type="text/javascript">
+     $(document).ready(function() {
+				$('#news_article_closing_date').parent().hide();
+        $('#news_article_news_type_container').parent().bind('click', function() {
+					if ($('#news_article_news_type_input')[0].value == "Vacancy") {
+						$(this).next().show();
+					} else {
+						$(this).next().hide();
+					}
+				});
+     });
+</script>
